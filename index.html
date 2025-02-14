@@ -28,11 +28,36 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
+        .secret-button {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            cursor: default;
+            background-color: transparent;
+            border: none;
+        }
     </style>
 </head>
 <body>
     <div class="image-container">
         <img src="images/BeMyValentine.png" alt="Be My Valentine image">
     </div>
+    <button id="secretButton" class="secret-button"></button>
+
+    <script>
+        let clickCount = 0;
+        const secretButton = document.getElementById('secretButton');
+        
+        secretButton.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 3) {
+                window.location.href = 'secret-letter.html';
+                clickCount = 0;
+            }
+        });
+    </script>
 </body>
 </html> 
